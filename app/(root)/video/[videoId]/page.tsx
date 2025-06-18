@@ -7,7 +7,8 @@ import { redirect } from "next/navigation";
 const page = async ( { params }: Params) => {
   const { videoId } = await params;
   const { user, video } = await getVideoById(videoId);
-  if (!video) {
+  const { visibility } = video;
+  if (!video || (visibility === 'private' && user?.id !== video.userId)) {
     redirect('/404');
   }
 
