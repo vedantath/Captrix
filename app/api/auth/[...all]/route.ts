@@ -19,7 +19,7 @@ const rateLimit = aj.withRule(
     slidingWindow({
         mode: 'LIVE',
         interval: '2m',
-        max: 2,
+        max: 10,
         characteristics: ['fingerprint']
     })
 )

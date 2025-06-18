@@ -38,7 +38,7 @@ const validateWithArcjet = async (fingerprint: string) => {
         fixedWindow({
             mode: 'LIVE',
             window: '1m',
-            max: 2,
+            max: 8,
             characteristics: ['fingerprint']
         })
     )
