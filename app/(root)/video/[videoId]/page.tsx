@@ -1,19 +1,13 @@
 import VideoDetailHeader from "@/components/VideoDetailHeader";
 import VideoPlayer from "@/components/VideoPlayer";
 import { getVideoById } from "@/lib/actions/video";
-import { authClient } from "@/lib/auth-client";
 import { redirect } from "next/navigation";
 
 
 const page = async ( { params }: Params) => {
-  // const router = useRouter();
-  const { data: session } = authClient.useSession();
-  const clientUserId = session?.user.id;
-
   const { videoId } = await params;
   const { user, video } = await getVideoById(videoId);
-  const { visibility } = video;
-  if (!video || (visibility === 'private' && clientUserId !== video.userId)) {
+  if (!video) {
     redirect('/404');
   }
 
