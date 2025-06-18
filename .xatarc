@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Vedant-Athale-s-workspace-3t9jq3.us-east-1.xata.sh/db/jsm_snapcast",
+  "codegen": {
+    "output": "src/xata.ts"
+  }
+}
